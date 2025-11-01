@@ -11,7 +11,7 @@ Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring
 ![Structure de la Base de Données](Diagramme-De-Base-de-Données-PostgreSQL.PNG)
 ## 🚀 Installation et Exécution
 ### Prérequis
-- JDK 17+
+- JDK 17+   
 - MySQL/PostgreSQL installé
 - Maven/Gradle
 - ### Étapes d'installation
@@ -26,7 +26,7 @@ Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring
 3. Configurez `application.properties`
 ```properties
 spring.application.name=vehicle-rental-backend
-spring.datasource.url=jdbc:mysql://localhost:3306/nom_de_votre_base
+spring.datasource.url=jdbc:mysql://localhost:8081/vehicle_rent
 spring.datasource.username=votre_username
 spring.datasource.password=votre_password
  
