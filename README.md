@@ -1,4 +1,4 @@
-# 📚 Gestion De Location De Vehicules Back End
+# 🚘🏍️🚛 Gestion De Location De Vehicules Back End
 ## 📝 Description
 Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring Boot** et documentée avec **Swagger UI** pour la gestion d'un système de location de véhicules. L'application permet de gérer l'ensemble du cycle de location, depuis la gestion du parc automobile jusqu'à la facturation des clients.
 - **Langage** : Kotlin
@@ -29,9 +29,7 @@ spring.application.name=vehicle-rental-backend
 spring.datasource.url=jdbc:mysql://localhost:3306/nom_de_votre_base
 spring.datasource.username=votre_username
 spring.datasource.password=votre_password
-springdoc.api-docs.path: /api-docs
-swagger-ui.path: /swagger-ui.html
-swagger-ui.operations-sorter: method
+ 
 ```
 4. Lancez l'application
 ```bash
