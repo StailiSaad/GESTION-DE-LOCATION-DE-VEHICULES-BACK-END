@@ -1,6 +1,6 @@
 # 📚 Gestion De Location De Vehicules Back End
 ## 📝 Description
-Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring Boot** et documentée avec **Swagger UI** pour la gestion d'un système de location de véhicules. L'application permet de gérer l'ensemble du cycle de location, depuis la gestion du parc automobile jusqu'à la facturation des clients.##  
+Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring Boot** et documentée avec **Swagger UI** pour la gestion d'un système de location de véhicules. L'application permet de gérer l'ensemble du cycle de location, depuis la gestion du parc automobile jusqu'à la facturation des clients.
 - **Langage** : Kotlin
 - **Framework** : Spring Boot
 - **Base de données** :PostgreSQL
@@ -75,5 +75,41 @@ swagger-ui.operations-sorter: method
 | `POST` | `/api/rentals` | Création nouveau contrat | 201 Created |
 | `POST` | `/api/rentals/{id}/complete` | Clôture de location | 200 OK |
 | `POST` | `/api/rentals/{id}/cancel` | Annulation de contrat | 200 OK |
+
+## 🚀 Améliorations Techniques Implémentées
+
+### A) Architecture DTO (Data Transfer Object)
+
+**Problématique Résolue** :  
+Séparation stricte entre le modèle de persistance et le modèle d'exposition API pour éviter les failles de sécurité et améliorer les performances.
+
+**Avantages** :
+- ✅ **Contrôle granulaire** des données exposées
+- ✅ **Prévention des injections** de données sensibles
+- ✅ **Découplage** entre couches applicatives
+- ✅ **Optimisation** du trafic réseau
+
+### B) Documentation Interactive avec Swagger/OpenAPI 3.0
+
+**Solution de Documentation** :  
+Intégration de la spécification OpenAPI 3.0 pour une documentation automatique et interactive de l'API.
+
+**Fonctionnalités** :
+- 📚 **Génération automatique** de la documentation
+- 🖱️ **Interface utilisateur interactive** (Swagger UI)
+- 🧪 **Testing en temps réel** des endpoints
+- 🔒 **Validation des schémas** de données
+- 🛡️ **Sécurisation de l'accès** à la documentation
+
+**Accès** :
+- 🌐 **Interface Utilisateur** : `http://localhost:8081/swagger-ui.html`
+- 📄 **Spécification OpenAPI** : `http://localhost:8081/api-docs`
+
+### C) Suite Complète de Tests Unitaires
+
+**Stratégie de Testing** :  
+Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD avec isolation des dépendances via Mockito.
+## 📅 Date
+**01/11/2025**
 ## 󰞵 Auteur
-**[Staili Saad et Saadi Sara]** - Projet Back-End Kotlin/Spring Boot
+**Staili Saad et Saadi Sara** - Projet Back-End **Kotlin/Spring Boot** documentée avec **Swagger UI**
