@@ -118,7 +118,7 @@ Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD a
 - 📄 **Structure de code dans Intellij**
 - 🔄 **Tests des endpoints API**
 - 📊 **Interface Swagger UI**
-- 👥 **Cocnlusion**
+- 👥 **Conclusion**
 ## 📅 Date
 **01/11/2025**
 ## 󰞵 Auteur
