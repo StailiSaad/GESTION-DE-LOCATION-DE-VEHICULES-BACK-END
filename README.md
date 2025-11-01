@@ -107,6 +107,18 @@ Intégration de la spécification OpenAPI 3.0 pour une documentation automatique
 
 **Stratégie de Testing** :  
 Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD avec isolation des dépendances via Mockito.
+## 🎥 Démonstration Vidéo
+
+[![Vidéo de démonstration sur Teams](https://img.shields.io/badge/VIDÉO-Voir_la_démonstration_sur_Teams-505AC9?style=for-the-badge&logo=microsoft-teams)](https://lien-vers-votre-video-teams.com)
+
+**Cliquez sur le badge ci-dessus pour accéder à la démonstration vidéo sur Microsoft Teams**
+
+### 📹 Contenu de la démonstration :
+- 🚀 **Lancement de l'application**
+- 📄 **Structure de code dans Intellij**
+- 🔄 **Tests des endpoints API**
+- 📊 **Interface Swagger UI**
+- 👥 **Cocnlusion**
 ## 📅 Date
 **01/11/2025**
 ## 󰞵 Auteur
