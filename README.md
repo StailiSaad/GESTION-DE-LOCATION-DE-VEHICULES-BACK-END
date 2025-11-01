@@ -109,7 +109,7 @@ Intégration de la spécification OpenAPI 3.0 pour une documentation automatique
 Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD avec isolation des dépendances via Mockito.
 ## 🎥 Démonstration Vidéo
 
-[![Vidéo de démonstration sur Teams](https://img.shields.io/badge/VIDÉO-Voir_la_démonstration_sur_Teams-505AC9?style=for-the-badge&logo=microsoft-teams)](https://lien-vers-votre-video-teams.com)
+[![Vidéo de démonstration sur Teams](https://img.shields.io/badge/VIDÉO-Voir_la_démonstration_sur_Teams-505AC9?style=for-the-badge&logo=microsoft-teams)](https://1drv.ms/v/c/65e5736374fa0d09/Ad-sWF27Sh9Ng5w3IzNrYj4)
 
 **Cliquez sur le badge ci-dessus pour accéder à la démonstration vidéo sur Microsoft Teams**
 
