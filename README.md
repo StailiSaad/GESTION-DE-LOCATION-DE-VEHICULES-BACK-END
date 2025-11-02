@@ -103,7 +103,7 @@ Intégration de la spécification OpenAPI 3.0 pour une documentation automatique
 - 🌐 **Interface Utilisateur** : `http://localhost:8081/swagger-ui.html`
 - 📄 **Spécification OpenAPI** : `http://localhost:8081/api-docs`
 
-### C) Suite Complète de Tests Unitaires
+### C) Suite Complète de Tests Unitaires 
 
 **Stratégie de Testing** :  
 Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD avec isolation des dépendances via Mockito.
