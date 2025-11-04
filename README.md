@@ -38,19 +38,19 @@ spring.datasource.password=votre_password
 ```
 ## 📚 Documentation du Code
 ![Dokka](Documentation-Dokka.PNG)
-### Description
+### A) Description
 Ce projet dispose d'une documentation complète générée automatiquement à partir des commentaires KDoc présents dans le code source.
 
-### Générer la documentation
+### B) Générer la documentation
 *Avec Gradle :*
 ```bash
 ./gradlew dokkaHtml
 ```
-### Consulter la documentation
+### C) Consulter la documentation
 Après génération, ouvrez le fichier suivant dans votre navigateur :
 - *Gradle* : build/dokka/index.html
 
-### Contenu de la documentation
+### D) Contenu de la documentation
 La documentation inclut :
 - ✅ Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
 - ✅ Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
@@ -58,7 +58,7 @@ La documentation inclut :
 - ✅ Relations entre les différents composants
 - ✅ Exemples d'utilisation pour les fonctions complexes
 
-### Navigation
+### E) Navigation
 La documentation générée est interactive et permet de :
 - 🔍 Rechercher rapidement une classe ou méthode
 - 🔗 Naviguer entre les classes liées
