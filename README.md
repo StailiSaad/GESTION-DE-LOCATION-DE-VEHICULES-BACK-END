@@ -37,7 +37,7 @@ spring.datasource.password=votre_password
  ./mvnw spring-boot:run
 ```
 ## 📚 Documentation du Code
-
+![Dokka](Documentation-Dokka.PNG)
 ### Description
 Ce projet dispose d'une documentation complète générée automatiquement à partir des commentaires KDoc présents dans le code source.
 
