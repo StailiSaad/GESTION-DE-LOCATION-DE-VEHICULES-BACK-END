@@ -36,6 +36,35 @@ spring.datasource.password=votre_password
 ```bash
  ./mvnw spring-boot:run
 ```
+## 📚 Documentation du Code
+
+### Description
+Ce projet dispose d'une documentation complète générée automatiquement à partir des commentaires KDoc présents dans le code source.
+
+### Générer la documentation
+*Avec Gradle :*
+```bash
+./gradlew dokkaHtml
+```
+### Consulter la documentation
+Après génération, ouvrez le fichier suivant dans votre navigateur :
+- *Gradle* : build/dokka/index.html
+
+### Contenu de la documentation
+La documentation inclut :
+- ✅ Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
+- ✅ Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
+- ✅ Documentation des exceptions levées
+- ✅ Relations entre les différents composants
+- ✅ Exemples d'utilisation pour les fonctions complexes
+
+### Navigation
+La documentation générée est interactive et permet de :
+- 🔍 Rechercher rapidement une classe ou méthode
+- 🔗 Naviguer entre les classes liées
+- 📱 Consulter depuis mobile (design responsive)
+- 📊 Visualiser la hiérarchie des packages
+
 ## 📡 Endpoints Disponibles
 
 ### A) 🚗 Gestion du Parc Automobile
