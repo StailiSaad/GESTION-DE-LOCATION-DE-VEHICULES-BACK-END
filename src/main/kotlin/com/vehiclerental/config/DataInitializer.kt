@@ -8,6 +8,15 @@ import com.vehiclerental.repository.TruckRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 
+/**
+ * Composant Spring responsable de l'initialisation des données de démonstration
+ * au démarrage de l'application.
+ *
+ * @property carRepository Repository pour la gestion des voitures
+ * @property motorcycleRepository Repository pour la gestion des motos
+ * @property truckRepository Repository pour la gestion des camions
+ * @property customerRepository Repository pour la gestion des clients
+ */
 @Component
 class DataInitializer(
     private val carRepository: CarRepository,
@@ -16,12 +25,22 @@ class DataInitializer(
     private val customerRepository: CustomerRepository
 ) : CommandLineRunner {
 
+    /**
+     * Méthode exécutée au démarrage de l'application Spring Boot.
+     * Initialise les véhicules et clients si la base est vide.
+     *
+     * @param args Arguments de ligne de commande
+     */
     override fun run(vararg args: String?) {
         initVehicles()
         initCustomers()
         println(" Données d'initialisation chargées avec succès! 01/11/2025")
     }
 
+    /**
+     * Initialise les données des véhicules (voitures, motos, camions)
+     * dans la base de données si elle est vide.
+     */
     private fun initVehicles() {
 
         if (carRepository.count() == 0L) {
@@ -66,7 +85,7 @@ class DataInitializer(
                     dailyRate = 85.0,
                     engineSize = 999,
                     type = "NAKED"
-            )
+                )
             )
             motorcycleRepository.saveAll(motorcycles)
         }
@@ -87,6 +106,9 @@ class DataInitializer(
         }
     }
 
+    /**
+     * Initialise les données des clients dans la base de données si elle est vide.
+     */
     private fun initCustomers() {
 
         if (customerRepository.count() == 0L) {
@@ -106,12 +128,12 @@ class DataInitializer(
                     driverLicenseNumber = "BG987654321"
                 ) ,
                 Customer(
-                      firstName = "customer2",
-                      lastName = "OPT1",
-                      email = "OPT1@gmail.com",
-                      phoneNumber = "+212755551",
-                      driverLicenseNumber = "FF2222321"
-            )
+                    firstName = "customer2",
+                    lastName = "OPT1",
+                    email = "OPT1@gmail.com",
+                    phoneNumber = "+212755551",
+                    driverLicenseNumber = "FF2222321"
+                )
             )
             customerRepository.saveAll(customers)
         }

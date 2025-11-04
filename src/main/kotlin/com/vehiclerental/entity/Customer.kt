@@ -6,6 +6,18 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
 import java.time.LocalDateTime
 
+/**
+ * Entité représentant un client du système de location de véhicules.
+ *
+ * @property id Identifiant unique du client
+ * @property firstName Prénom du client
+ * @property lastName Nom de famille du client
+ * @property email Adresse email unique du client
+ * @property phoneNumber Numéro de téléphone du client
+ * @property driverLicenseNumber Numéro de permis de conduire unique
+ * @property createdAt Date et heure de création du client
+ * @property rentals Liste des locations associées à ce client
+ */
 @Entity
 @Table(name = "customers")
 class Customer(
@@ -38,5 +50,10 @@ class Customer(
     @OneToMany(mappedBy = "customer", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     val rentals: MutableSet<Rental> = mutableSetOf()
 ) {
+    /**
+     * Retourne le nom complet du client.
+     *
+     * @return String contenant le prénom et nom concaténés
+     */
     fun getFullName(): String = "$firstName $lastName"
 }

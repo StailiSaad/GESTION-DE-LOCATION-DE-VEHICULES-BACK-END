@@ -5,6 +5,19 @@ import jakarta.validation.constraints.Future
 import jakarta.validation.constraints.NotNull
 import java.time.LocalDateTime
 
+/**
+ * Entité représentant une location de véhicule.
+ * Relie un client à un véhicule pour une période donnée.
+ *
+ * @property id Identifiant unique de la location
+ * @property customer Client effectuant la location
+ * @property vehicle Véhicule loué
+ * @property startDate Date de début de location
+ * @property endDate Date de fin de location
+ * @property totalPrice Prix total de la location
+ * @property status Statut actuel de la location
+ * @property createdAt Date et heure de création de la location
+ */
 @Entity
 @Table(name = "rentals")
 class Rental(
@@ -41,14 +54,27 @@ class Rental(
     @Column(name = "created_at", nullable = false)
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
+    /**
+     * Calcule le prix total de la location basé sur la durée et le tarif du véhicule.
+     *
+     * @return Double représentant le prix total calculé
+     */
     fun calculateTotalPrice(): Double {
         val days = java.time.Duration.between(startDate, endDate).toDays().toInt()
         return vehicle.calculateRentalPrice(days)
     }
 
+    /**
+     * Vérifie si la location est active.
+     *
+     * @return Boolean true si la location est active, false sinon
+     */
     fun isActive(): Boolean = status == RentalStatus.ACTIVE
 }
 
+/**
+ * Enumération des statuts possibles d'une location.
+ */
 enum class RentalStatus {
     ACTIVE, COMPLETED, CANCELLED
 }

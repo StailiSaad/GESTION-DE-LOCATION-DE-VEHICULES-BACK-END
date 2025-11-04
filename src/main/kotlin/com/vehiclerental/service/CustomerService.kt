@@ -7,20 +7,45 @@ import com.vehiclerental.repository.CustomerRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
+/**
+ * Service pour la gestion des clients.
+ * Fournit les opérations CRUD et de recherche pour les clients.
+ *
+ * @property customerRepository Repository pour l'accès aux données des clients
+ */
 @Service
 @Transactional
 class CustomerService(private val customerRepository: CustomerRepository) {
 
+    /**
+     * Récupère tous les clients.
+     *
+     * @return Liste de tous les clients sous forme de CustomerResponse
+     */
     fun getAllCustomers(): List<CustomerResponse> {
         return customerRepository.findAll().map { it.toResponse() }
     }
 
+    /**
+     * Récupère un client par son identifiant.
+     *
+     * @param id Identifiant du client
+     * @return CustomerResponse correspondant au client
+     * @throws IllegalArgumentException si le client n'est pas trouvé
+     */
     fun getCustomerById(id: Long): CustomerResponse {
         val customer = customerRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Customer not found with id: $id") }
         return customer.toResponse()
     }
 
+    /**
+     * Crée un nouveau client.
+     *
+     * @param customerRequest Données de création du client
+     * @return CustomerResponse du client créé
+     * @throws IllegalArgumentException si l'email ou le numéro de permis existe déjà
+     */
     fun createCustomer(customerRequest: CustomerRequest): CustomerResponse {
         // Vérifier si l'email existe déjà
         if (customerRepository.findByEmail(customerRequest.email).isPresent) {
@@ -44,6 +69,14 @@ class CustomerService(private val customerRepository: CustomerRepository) {
         return savedCustomer.toResponse()
     }
 
+    /**
+     * Met à jour un client existant.
+     *
+     * @param id Identifiant du client à mettre à jour
+     * @param customerRequest Nouvelles données du client
+     * @return CustomerResponse du client mis à jour
+     * @throws IllegalArgumentException si le client n'est pas trouvé ou si l'email/permis existe déjà
+     */
     fun updateCustomer(id: Long, customerRequest: CustomerRequest): CustomerResponse {
         val existingCustomer = customerRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Customer not found with id: $id") }
@@ -77,6 +110,12 @@ class CustomerService(private val customerRepository: CustomerRepository) {
         return savedCustomer.toResponse()
     }
 
+    /**
+     * Supprime un client par son identifiant.
+     *
+     * @param id Identifiant du client à supprimer
+     * @throws IllegalArgumentException si le client n'est pas trouvé
+     */
     fun deleteCustomer(id: Long) {
         if (!customerRepository.existsById(id)) {
             throw IllegalArgumentException("Customer not found with id: $id")
@@ -84,10 +123,21 @@ class CustomerService(private val customerRepository: CustomerRepository) {
         customerRepository.deleteById(id)
     }
 
+    /**
+     * Recherche des clients par nom (prénom ou nom de famille).
+     *
+     * @param name Terme de recherche
+     * @return Liste des clients correspondants sous forme de CustomerResponse
+     */
     fun searchCustomersByName(name: String): List<CustomerResponse> {
         return customerRepository.findByNameContainingIgnoreCase(name).map { it.toResponse() }
     }
 
+    /**
+     * Extension function pour convertir une entité Customer en CustomerResponse.
+     *
+     * @return CustomerResponse correspondant à l'entité Customer
+     */
     private fun Customer.toResponse(): CustomerResponse = CustomerResponse(
         id = this.id,
         firstName = this.firstName,

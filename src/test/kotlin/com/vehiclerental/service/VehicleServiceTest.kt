@@ -15,6 +15,10 @@ import org.mockito.Mockito
 import org.mockito.junit.jupiter.MockitoExtension
 import java.util.Optional
 
+/**
+ * Classe de tests unitaires pour VehicleService.
+ * Teste les fonctionnalités de gestion des véhicules.
+ */
 @ExtendWith(MockitoExtension::class)
 class VehicleServiceTest {
 
@@ -27,6 +31,9 @@ class VehicleServiceTest {
     @InjectMocks
     private lateinit var vehicleService: VehicleService
 
+    /**
+     * Teste la création réussie d'une voiture avec une requête valide.
+     */
     @Test
     fun `createCar should return car response when valid request`() {
         // Given
@@ -64,6 +71,9 @@ class VehicleServiceTest {
         Mockito.verify(carRepository, Mockito.times(1)).save(ArgumentMatchers.any(Car::class.java))
     }
 
+    /**
+     * Teste qu'une exception est levée lors de la création d'une voiture avec un type de carburant invalide.
+     */
     @Test
     fun `createCar should throw exception when invalid fuel type`() {
         // Arrange
@@ -83,6 +93,9 @@ class VehicleServiceTest {
         }
     }
 
+    /**
+     * Teste la récupération réussie d'un véhicule par son identifiant lorsqu'il existe.
+     */
     @Test
     fun `getVehicleById should return vehicle when exists`() {
         // Given
@@ -107,6 +120,9 @@ class VehicleServiceTest {
         Assertions.assertEquals("Range Rover", result.brand)
     }
 
+    /**
+     * Teste qu'une exception est levée lors de la récupération d'un véhicule qui n'existe pas.
+     */
     @Test
     fun `getVehicleById should throw exception when not exists`() {
         // Given

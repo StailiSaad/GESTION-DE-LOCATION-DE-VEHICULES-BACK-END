@@ -5,6 +5,15 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Positive
 
+/**
+ * Classe scellée représentant une requête de véhicule de base.
+ * Sert de classe parente pour les types spécifiques de véhicules.
+ *
+ * @property brand Marque du véhicule
+ * @property model Modèle du véhicule
+ * @property year Année de fabrication
+ * @property dailyRate Tarif journalier de location
+ */
 sealed class VehicleRequest(
     @field:NotBlank(message = "Brand is mandatory")
     open val brand: String,
@@ -21,6 +30,13 @@ sealed class VehicleRequest(
     open val dailyRate: Double
 )
 
+/**
+ * DTO de requête pour la création d'une voiture.
+ *
+ * @property doors Nombre de portes
+ * @property fuelType Type de carburant
+ * @property automatic Si la voiture est automatique
+ */
 data class CarRequest(
     override val brand: String,
     override val model: String,
@@ -35,6 +51,12 @@ data class CarRequest(
     val automatic: Boolean
 ) : VehicleRequest(brand, model, year, dailyRate)
 
+/**
+ * DTO de requête pour la création d'une moto.
+ *
+ * @property engineSize Cylindrée du moteur en cc
+ * @property type Type de moto (ex: NAKED, SPORT, etc.)
+ */
 data class MotorcycleRequest(
     override val brand: String,
     override val model: String,
@@ -49,6 +71,12 @@ data class MotorcycleRequest(
     val type: String
 ) : VehicleRequest(brand, model, year, dailyRate)
 
+/**
+ * DTO de requête pour la création d'un camion.
+ *
+ * @property capacity Capacité de charge en kg
+ * @property fourWheelDrive Si le camion a une transmission intégrale
+ */
 data class TruckRequest(
     override val brand: String,
     override val model: String,

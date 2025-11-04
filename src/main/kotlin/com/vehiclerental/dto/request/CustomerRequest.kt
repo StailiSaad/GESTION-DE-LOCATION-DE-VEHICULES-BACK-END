@@ -4,6 +4,16 @@ import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
 
+/**
+ * DTO de requête pour la création ou mise à jour d'un client.
+ * Contient les données de validation pour les opérations sur les clients.
+ *
+ * @property firstName Prénom du client
+ * @property lastName Nom de famille du client
+ * @property email Adresse email du client
+ * @property phoneNumber Numéro de téléphone du client
+ * @property driverLicenseNumber Numéro de permis de conduire du client
+ */
 data class CustomerRequest(
     @field:NotBlank(message = "First name is mandatory")
     val firstName: String,

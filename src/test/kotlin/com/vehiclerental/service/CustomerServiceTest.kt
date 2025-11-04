@@ -78,7 +78,7 @@ class CustomerServiceTest {
             driverLicenseNumber = "DL654321"
         )
 
-        `when`(customerRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(existingCustomer))
+        `when`(customerRepository.findByEmail("nticdev@example.com")).thenReturn(Optional.of(existingCustomer))
 
         // When & Then
         assertThrows(IllegalArgumentException::class.java) {

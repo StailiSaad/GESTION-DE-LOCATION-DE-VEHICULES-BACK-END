@@ -4,6 +4,14 @@ import jakarta.persistence.*
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
 
+/**
+ * Entité représentant une voiture.
+ * Hérite de Vehicle et ajoute des propriétés spécifiques aux voitures.
+ *
+ * @property doors Nombre de portes
+ * @property fuelType Type de carburant
+ * @property automatic Si la voiture est automatique
+ */
 @Entity
 @Table(name = "cars")
 @DiscriminatorValue("CAR")
@@ -27,6 +35,13 @@ class Car(
     val automatic: Boolean
 ) : Vehicle(brand = brand, model = model, year = year, dailyRate = dailyRate, available = available) {
 
+    /**
+     * Calcule le prix de location pour une durée donnée.
+     * Ajoute un supplément pour les voitures automatiques.
+     *
+     * @param days Nombre de jours de location
+     * @return Prix total de la location
+     */
     override fun calculateRentalPrice(days: Int): Double {
         var price = dailyRate * days
         // Supplément pour voiture automatique
@@ -36,9 +51,17 @@ class Car(
         return price
     }
 
+    /**
+     * Retourne le type de véhicule.
+     *
+     * @return String représentant le type de véhicule
+     */
     override fun getVehicleType(): String = "CAR"
 }
 
+/**
+ * Enumération des types de carburant disponibles pour les véhicules.
+ */
 enum class FuelType {
     GASOLINE, DIESEL, ELECTRIC, HYBRID
 }

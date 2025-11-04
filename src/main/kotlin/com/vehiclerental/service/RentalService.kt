@@ -11,6 +11,14 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 
+/**
+ * Service pour la gestion des locations de véhicules.
+ * Gère le cycle de vie complet des locations.
+ *
+ * @property rentalRepository Repository pour l'accès aux données des locations
+ * @property customerRepository Repository pour l'accès aux données des clients
+ * @property vehicleRepository Repository pour l'accès aux données des véhicules
+ */
 @Service
 @Transactional
 class RentalService(
@@ -19,16 +27,36 @@ class RentalService(
     private val vehicleRepository: VehicleRepository
 ) {
 
+    /**
+     * Récupère toutes les locations.
+     *
+     * @return Liste de toutes les locations sous forme de RentalResponse
+     */
     fun getAllRentals(): List<RentalResponse> {
         return rentalRepository.findAll().map { it.toResponse() }
     }
 
+    /**
+     * Récupère une location par son identifiant.
+     *
+     * @param id Identifiant de la location
+     * @return RentalResponse correspondant à la location
+     * @throws IllegalArgumentException si la location n'est pas trouvée
+     */
     fun getRentalById(id: Long): RentalResponse {
         val rental = rentalRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Rental not found with id: $id") }
         return rental.toResponse()
     }
 
+    /**
+     * Crée une nouvelle location.
+     *
+     * @param rentalRequest Données de création de la location
+     * @return RentalResponse de la location créée
+     * @throws IllegalArgumentException si le client, le véhicule n'existe pas,
+     * si le véhicule n'est pas disponible, ou s'il y a des chevauchements de dates
+     */
     fun createRental(rentalRequest: RentalRequest): RentalResponse {
         val customer = customerRepository.findById(rentalRequest.customerId)
             .orElseThrow { IllegalArgumentException("Customer not found with id: ${rentalRequest.customerId}") }
@@ -75,6 +103,13 @@ class RentalService(
         return savedRental.toResponse()
     }
 
+    /**
+     * Termine une location active.
+     *
+     * @param id Identifiant de la location à terminer
+     * @return RentalResponse de la location terminée
+     * @throws IllegalArgumentException si la location n'est pas trouvée ou n'est pas active
+     */
     fun completeRental(id: Long): RentalResponse {
         val rental = rentalRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Rental not found with id: $id") }
@@ -90,6 +125,13 @@ class RentalService(
         return updatedRental.toResponse()
     }
 
+    /**
+     * Annule une location active.
+     *
+     * @param id Identifiant de la location à annuler
+     * @return RentalResponse de la location annulée
+     * @throws IllegalArgumentException si la location n'est pas trouvée ou n'est pas active
+     */
     fun cancelRental(id: Long): RentalResponse {
         val rental = rentalRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Rental not found with id: $id") }
@@ -105,14 +147,30 @@ class RentalService(
         return updatedRental.toResponse()
     }
 
+    /**
+     * Récupère toutes les locations d'un client spécifique.
+     *
+     * @param customerId Identifiant du client
+     * @return Liste des locations du client sous forme de RentalResponse
+     */
     fun getCustomerRentals(customerId: Long): List<RentalResponse> {
         return rentalRepository.findByCustomerId(customerId).map { it.toResponse() }
     }
 
+    /**
+     * Récupère les locations en retard.
+     *
+     * @return Liste des locations en retard sous forme de RentalResponse
+     */
     fun getOverdueRentals(): List<RentalResponse> {
         return rentalRepository.findOverdueRentals(LocalDateTime.now()).map { it.toResponse() }
     }
 
+    /**
+     * Extension function pour convertir une entité Rental en RentalResponse.
+     *
+     * @return RentalResponse correspondant à l'entité Rental
+     */
     private fun Rental.toResponse(): RentalResponse = RentalResponse(
         id = this.id,
         customer = this.customer.toResponse(),
@@ -124,6 +182,11 @@ class RentalService(
         createdAt = this.createdAt.toString()
     )
 
+    /**
+     * Extension function pour convertir une entité Customer en CustomerResponse.
+     *
+     * @return CustomerResponse correspondant à l'entité Customer
+     */
     private fun com.vehiclerental.entity.Customer.toResponse(): com.vehiclerental.dto.response.CustomerResponse =
         com.vehiclerental.dto.response.CustomerResponse(
             id = this.id,
