@@ -5,7 +5,7 @@ Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring
 - **Langage** : Kotlin
 - **Framework** : Spring Boot
 - **Base de données** :PostgreSQL
-- **Build Tool** :  Gradle.
+- **Build Tool** :  Gradle
 ## 📊 Diagramme UML
 ![Diagramme UML](Diagramme-UML.PNG)
 ## 🗃 Structure de la Base de Données
