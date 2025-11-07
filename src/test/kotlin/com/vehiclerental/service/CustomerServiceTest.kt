@@ -13,6 +13,10 @@ import org.mockito.Mockito.*
 import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
+/**
+ * Classe de tests unitaires pour CustomerService.
+ * Teste les fonctionnalités de gestion des clients.
+ */
 @ExtendWith(MockitoExtension::class)
 class CustomerServiceTest {
 
@@ -22,6 +26,9 @@ class CustomerServiceTest {
     @InjectMocks
     private lateinit var customerService: CustomerService
 
+    /**
+     * Teste la création réussie d'un client avec une requête valide.
+     */
     @Test
     fun `createCustomer should return customer response when valid request`() {
         // Given
@@ -58,6 +65,9 @@ class CustomerServiceTest {
         verify(customerRepository, times(1)).save(any(Customer::class.java))
     }
 
+    /**
+     * Teste qu'une exception est levée lors de la création d'un client avec un email existant.
+     */
     @Test
     fun `createCustomer should throw exception when email exists`() {
         // Given
@@ -86,6 +96,9 @@ class CustomerServiceTest {
         }
     }
 
+    /**
+     * Teste la récupération réussie d'un client par son identifiant lorsqu'il existe.
+     */
     @Test
     fun `getCustomerById should return customer when exists`() {
         // Given
@@ -109,6 +122,9 @@ class CustomerServiceTest {
         assertEquals("Ntic", result.firstName)
     }
 
+    /**
+     * Teste qu'une exception est levée lors de la récupération d'un client qui n'existe pas.
+     */
     @Test
     fun `getCustomerById should throw exception when not exists`() {
         // Given
