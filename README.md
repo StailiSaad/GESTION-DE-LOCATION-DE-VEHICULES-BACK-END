@@ -52,11 +52,11 @@ Après génération, ouvrez le fichier suivant dans votre navigateur :
 
 ### D) Contenu de la documentation
 La documentation inclut :
-- 📝 Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
-- 🔍 Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
-- 📄 Documentation des exceptions levées
-- 🔗 Relations entre les différents composants
-- 🧪 Exemples d'utilisation pour les fonctions complexes
+- ✅ Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
+- ✅ Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
+- ✅ Documentation des exceptions levées
+- ✅ Relations entre les différents composants
+- ✅ Exemples d'utilisation pour les fonctions complexes
 
 ### E) Navigation
 La documentation générée est interactive et permet de :
