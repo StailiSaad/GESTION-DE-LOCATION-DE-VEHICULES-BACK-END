@@ -153,4 +153,4 @@ Implémentation du "Arrange-When & Then" → Mélange hybride entre AAA et BDD a
 ## 📅 Date
 **01/11/2025**
 ## 󰞵 Auteur
-**Staili Saad et Saadi Sara** - Projet Back-End **Kotlin/Spring Boot** documentée avec **Swagger UI**
+**Staili Saad et Saadi Sara** - Projet Back-End **Kotlin/Spring Boot** documentée avec **Swagger UI** et **Dokka**
