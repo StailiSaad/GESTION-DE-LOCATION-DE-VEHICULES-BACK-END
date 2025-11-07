@@ -14,7 +14,7 @@ Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring
 ### Prérequis
 - JDK 17+   
 - MySQL/PostgreSQL installé
-- Maven/Gradle
+- Gradle
 - ### Étapes d'installation
 1. Clonez le repository
 ```bash
