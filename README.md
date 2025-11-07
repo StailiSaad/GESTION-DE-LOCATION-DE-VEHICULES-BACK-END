@@ -1,7 +1,7 @@
 Package
 # 🚘🏍️🚛 Gestion De Location Des Vehicules Back End
 ## 📝 Description
-Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring Boot** et documentée avec **Swagger UI** pour la gestion d'un système de location de véhicules. L'application permet de gérer l'ensemble du cycle de location, depuis la gestion du parc automobile jusqu'à la facturation des clients.
+Ce projet est une **API RESTful complète** développée en **Kotlin avec Spring Boot** et documentée avec **Swagger UI** et **Dokka** pour la gestion d'un système de location de véhicules. L'application permet de gérer l'ensemble du cycle de location, depuis la gestion du parc automobile jusqu'à la facturation des clients.
 - **Langage** : Kotlin
 - **Framework** : Spring Boot
 - **Base de données** :PostgreSQL
@@ -52,11 +52,11 @@ Après génération, ouvrez le fichier suivant dans votre navigateur :
 
 ### D) Contenu de la documentation
 La documentation inclut :
--  Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
--  Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
--  Documentation des exceptions levées
--  Relations entre les différents composants
--  Exemples d'utilisation pour les fonctions complexes
+- 📝 Description détaillée de toutes les classes (Entités, Services, Controllers, Repositories)
+- 🔍 Explication de toutes les méthodes publiques avec paramètres et valeurs de retour
+- 📄 Documentation des exceptions levées
+- 🔗 Relations entre les différents composants
+- 🧪 Exemples d'utilisation pour les fonctions complexes
 
 ### E) Navigation
 La documentation générée est interactive et permet de :
